@@ -1,0 +1,26 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+tips = sns.load_dataset("tips")
+sns.set(style="whitegrid", palette="Set2")
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x="total_bill", y="tip", data=tips, hue="time", style="sex", s=100, palette="Set2")
+plt.title("Customized Scatter Plot")
+plt.xlabel("Total Bill")
+plt.ylabel("Tip")
+plt.legend(title="Time of Day")
+plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.histplot(tips["total_bill"], bins=20, kde=True, color="skyblue", line_kws={"color": "red"})
+plt.title("Customized Histogram")
+plt.xlabel("Total Bill")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.boxplot(x="day", y="total_bill", data=tips, palette="husl")
+plt.title("Customized Box Plot")
+plt.xlabel("Day")
+plt.ylabel("Total Bill")
+plt.show()
